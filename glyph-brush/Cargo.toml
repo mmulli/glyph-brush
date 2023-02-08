@@ -14,12 +14,16 @@ glyph_brush_draw_cache = { version = "0.1.1", path = "../draw-cache" }
 glyph_brush_layout = { version = "0.2", path = "../layout" }
 ordered-float = "3"
 rustc-hash = "1"
-twox-hash = { version = "1.6.1", default-features = false }
+twox-hash = { version = "1.6.3", default-features = false }
 
 # enable twox-hash rand/std everywhere except wasm
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies.twox-hash]
-version = "1.6.1"
+version = "1.6.3"
 features = ["std"]
+
+# [target.'cfg(target_arch = "wasm32")'.dependencies.twox-hash]
+# version = "1.6.3" # 1.6.3 Has the "js" feature
+# features = ["js"]
 
 [dev-dependencies]
 approx = "0.5"
